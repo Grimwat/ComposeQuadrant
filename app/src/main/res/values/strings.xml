@@ -2,4 +2,6 @@
     <string name="app_name">Compose quadrant</string>
     <string name="Head1">Image composable</string>
     <string name="para1">Creates a composable that lays out and draws a given Painter class object.</string>
+    <string name="head2">Image composable</string>
+    <string name="para2">Creates a composable that lays out and draws a given Painter class object.</string>
 </resources>
