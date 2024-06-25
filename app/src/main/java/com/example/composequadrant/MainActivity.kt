@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.FlowRowScopeInstance.weight
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -52,7 +51,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Cardone (head1: String, para1: String, modifier: Modifier = Modifier)
 {
-Column (modifier = Modifier.padding(16.dp),
+Column (modifier = modifier.padding(16.dp),
     verticalArrangement = Arrangement.Center,
     horizontalAlignment = Alignment.CenterHorizontally,
     ){
@@ -67,7 +66,7 @@ Column (modifier = Modifier.padding(16.dp),
     Text (
         text = para1,
         textAlign = TextAlign.Justify,
-        modifier = modifier
+        modifier = Modifier
 
     )
 
@@ -75,7 +74,7 @@ Column (modifier = Modifier.padding(16.dp),
 @Composable
 fun Cardtwo (head2: String, para2: String, modifier: Modifier = Modifier)
 {
-    Column (modifier = Modifier.padding(16.dp),
+    Column (modifier = modifier.padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ){
@@ -90,7 +89,7 @@ fun Cardtwo (head2: String, para2: String, modifier: Modifier = Modifier)
     Text (
         text = para2,
         textAlign = TextAlign.Justify,
-        modifier = modifier
+        modifier = Modifier
 
     )
 
@@ -98,7 +97,7 @@ fun Cardtwo (head2: String, para2: String, modifier: Modifier = Modifier)
 @Composable
 fun Cardthree (head3: String, para3: String, modifier: Modifier = Modifier)
 {
-    Column (modifier = Modifier.padding(16.dp),
+    Column (modifier = modifier.padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ){
@@ -113,7 +112,7 @@ fun Cardthree (head3: String, para3: String, modifier: Modifier = Modifier)
     Text (
         text = para3,
         textAlign = TextAlign.Justify,
-        modifier = modifier
+        modifier = Modifier
 
     )
 
@@ -121,7 +120,7 @@ fun Cardthree (head3: String, para3: String, modifier: Modifier = Modifier)
 @Composable
 fun Cardfour (head4: String, para4: String, modifier: Modifier = Modifier)
 {
-    Column (modifier = Modifier.padding(16.dp),
+    Column (modifier = modifier.padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ){
@@ -136,14 +135,14 @@ fun Cardfour (head4: String, para4: String, modifier: Modifier = Modifier)
     Text (
         text = para4,
         textAlign = TextAlign.Justify,
-        modifier = modifier
+        modifier = Modifier
 
     )
 
 }
 @Composable
 fun Twoinfocards(head1: String, para1: String, head2: String, para2: String, modifier: Modifier) {
-    Row(modifier.weight(1f)) {
+    Row(modifier = modifier) {
         Cardone(
             head1 = head1,
             para1 = para1,
@@ -159,16 +158,16 @@ fun Twoinfocards(head1: String, para1: String, head2: String, para2: String, mod
 }
 @Composable
 fun Bottominfocards(head3: String, para3: String, head4: String, para4: String, modifier: Modifier = Modifier){
-    Row(modifier.weight(1f)) {
+    Row(modifier = modifier) {
         Cardthree(
             head3 = head3,
             para3 = para3,
-            modifier = Modifier
+            modifier = Modifier.weight(1f)
         )
         Cardfour(
             head4 = head4,
             para4 = para4,
-            modifier = Modifier
+            modifier = Modifier.weight(1f)
         )
 
     }
@@ -176,18 +175,19 @@ fun Bottominfocards(head3: String, para3: String, head4: String, para4: String, 
 
 @Composable
 fun Quadrant(head1: String, para1: String, head2: String,para2: String,head3: String,para3: String, head4: String,para4: String, modifier: Modifier = Modifier){
-    Column {
+    Column (modifier = modifier) {
         Twoinfocards(
             head1 = head1,
             para1 = para1,
             head2 = head2,
             para2 = para2,
-            modifier = modifier )
+            modifier = Modifier.weight(1f) )
         Bottominfocards(
             head3 = head3 ,
             para3 = para3,
             head4 = head4,
-            para4 = para4)
+            para4 = para4,
+            modifier = Modifier.weight(1f))
     }
 }
 
