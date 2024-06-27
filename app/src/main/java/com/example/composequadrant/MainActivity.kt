@@ -65,47 +65,33 @@ Column (modifier = modifier.padding(16.dp).fillMaxHeight(),
 }
 }
 
-@Composable
-fun Twoinfocards(modifier: Modifier) {
-    Row(modifier = modifier) {
-        Card(
-            head = stringResource(R.string.h1),
-            para = stringResource(R.string.p1),
-            modifier = Modifier.weight(1f).background(color = Color(0xFFEADDFF))
-        )
-        Card(
-            head = stringResource(R.string.h2),
-            para = stringResource(R.string.p2),
-            modifier = Modifier.weight(1f).background(color = Color(0xFFD0BCFF))
-        )
-
-    }
-}
-@Composable
-fun Bottominfocards(modifier: Modifier) {
-    Row(modifier = modifier) {
-        Card(
-            head = stringResource(R.string.h3),
-            para = stringResource(R.string.p3),
-            modifier = Modifier.weight(1f).background(color = Color(0xFFB69DF8))
-        )
-        Card(
-            head = stringResource(R.string.h4),
-            para = stringResource(R.string.p4),
-            modifier = Modifier.weight(1f).background(color = Color(0xFFF6EDFF))
-        )
-
-    }
-}
-
 
 @Composable
 fun Quadrant( modifier: Modifier = Modifier){
-    Column (modifier = modifier) {
-        Twoinfocards(
-            modifier = Modifier.weight(1f))
-        Bottominfocards(
-            modifier = Modifier.weight(1f) )
+    Column (modifier = modifier){
+        Row(modifier = modifier.weight(1f)) {
+
+            Card(
+                head = stringResource(R.string.h1),
+                para = stringResource(R.string.p1),
+                modifier = Modifier.weight(1f).background(color = Color(0xFFEADDFF)),
+            )
+            Card(
+                head = stringResource(R.string.h2),
+                para = stringResource(R.string.p2),
+                modifier = Modifier.weight(1f).background(color = Color(0xFFD0BCFF)))
+    }
+        Row (modifier = modifier.weight(1f)) {
+            Card(
+                head = stringResource(R.string.h3),
+                para = stringResource(R.string.p3),
+                modifier = Modifier.weight(1f).background(color = Color(0xFFB69DF8)),
+            )
+            Card(
+                 head = stringResource(R.string.h4),
+                 para = stringResource(R.string.p4),
+                 modifier = Modifier.weight(1f).background(color = Color(0xFFF6EDFF)))
+        }
 
     }
 }
@@ -117,6 +103,9 @@ fun Quadrant( modifier: Modifier = Modifier){
 @Composable
 fun QuadrantPreview() {
     ComposeQuadrantTheme {
+        Quadrant(
+
+            )
 
     }
 }
