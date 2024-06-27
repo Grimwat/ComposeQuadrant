@@ -3,9 +3,11 @@ package com.example.composequadrant
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -14,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -31,16 +34,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
-                ) { Quadrant(
-                    head1 = stringResource(R.string.h1),
-                    para1 = stringResource(R.string.p1),
-                    head2 = stringResource(R.string.h2),
-                    para2 = stringResource(R.string.p2),
-                    head3 = stringResource(R.string.h3),
-                    para3 = stringResource(R.string.p3),
-                    head4 = stringResource(R.string.h4),
-                    para4 = stringResource(R.string.p4)
-                )
+                ) { Quadrant()
                 }
             }
         }
@@ -49,145 +43,78 @@ class MainActivity : ComponentActivity() {
 
 
 @Composable
-fun Cardone (head1: String, para1: String, modifier: Modifier = Modifier)
+fun Card (head: String, para: String, modifier: Modifier = Modifier)
 {
-Column (modifier = modifier.padding(16.dp),
+Column (modifier = modifier.padding(16.dp).fillMaxHeight(),
     verticalArrangement = Arrangement.Center,
     horizontalAlignment = Alignment.CenterHorizontally,
-    ){
+    ) {
 
-    }
-    Text (
-        text = head1,
-        fontWeight = FontWeight.Bold,
-        textAlign = TextAlign.Justify,
-        modifier = Modifier.padding(bottom = 16.dp)
-        )
-    Text (
-        text = para1,
-        textAlign = TextAlign.Justify,
-        modifier = Modifier
-
-    )
-
-}
-@Composable
-fun Cardtwo (head2: String, para2: String, modifier: Modifier = Modifier)
-{
-    Column (modifier = modifier.padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ){
-
-    }
-    Text (
-        text = head2,
+    Text(
+        text = head,
         fontWeight = FontWeight.Bold,
         textAlign = TextAlign.Justify,
         modifier = Modifier.padding(bottom = 16.dp)
     )
-    Text (
-        text = para2,
+    Text(
+        text = para,
         textAlign = TextAlign.Justify,
         modifier = Modifier
 
     )
-
 }
-@Composable
-fun Cardthree (head3: String, para3: String, modifier: Modifier = Modifier)
-{
-    Column (modifier = modifier.padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ){
-
-    }
-    Text (
-        text = head3,
-        fontWeight = FontWeight.Bold,
-        textAlign = TextAlign.Justify,
-        modifier = Modifier.padding(bottom = 16.dp)
-    )
-    Text (
-        text = para3,
-        textAlign = TextAlign.Justify,
-        modifier = Modifier
-
-    )
-
 }
-@Composable
-fun Cardfour (head4: String, para4: String, modifier: Modifier = Modifier)
-{
-    Column (modifier = modifier.padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ){
 
-    }
-    Text (
-        text = head4,
-        fontWeight = FontWeight.Bold,
-        textAlign = TextAlign.Justify,
-        modifier = Modifier.padding(bottom = 16.dp)
-    )
-    Text (
-        text = para4,
-        textAlign = TextAlign.Justify,
-        modifier = Modifier
-
-    )
-
-}
 @Composable
 fun Twoinfocards(head1: String, para1: String, head2: String, para2: String, modifier: Modifier) {
     Row(modifier = modifier) {
-        Cardone(
-            head1 = head1,
-            para1 = para1,
-            modifier = Modifier
+        Card(
+            head = head1,
+            para = para1,
+            modifier = Modifier.weight(1f).background(color = Color(0xFFEADDFF))
         )
-        Cardtwo(
-            head2 = head2,
-            para2 = para2,
-            modifier = Modifier
+        Card(
+            head = head2,
+            para = para2,
+            modifier = Modifier.weight(1f).background(color = Color(0xFFD0BCFF))
         )
 
     }
 }
 @Composable
-fun Bottominfocards(head3: String, para3: String, head4: String, para4: String, modifier: Modifier = Modifier){
+fun Bottominfocards(head3: String, para3: String, head4: String, para4: String, modifier: Modifier) {
     Row(modifier = modifier) {
-        Cardthree(
-            head3 = head3,
-            para3 = para3,
-            modifier = Modifier.weight(1f)
+        Card(
+            head = head3,
+            para = para3,
+            modifier = Modifier.weight(1f).background(color = Color(0xFFB69DF8))
         )
-        Cardfour(
-            head4 = head4,
-            para4 = para4,
-            modifier = Modifier.weight(1f)
+        Card(
+            head = head4,
+            para = para4,
+            modifier = Modifier.weight(1f).background(color = Color(0xFFF6EDFF))
         )
 
     }
 }
 
+
 @Composable
-fun Quadrant(head1: String, para1: String, head2: String,para2: String,head3: String,para3: String, head4: String,para4: String, modifier: Modifier = Modifier){
+fun Quadrant( modifier: Modifier = Modifier){
     Column (modifier = modifier) {
         Twoinfocards(
-            head1 = head1,
-            para1 = para1,
-            head2 = head2,
-            para2 = para2,
-            modifier = Modifier.weight(1f) )
-        Bottominfocards(
-            head3 = head3 ,
-            para3 = para3,
-            head4 = head4,
-            para4 = para4,
+            head1 = stringResource(R.string.h1),
+            para1 = stringResource(R.string.p1),
+            head2 = stringResource(R.string.h2),
+            para2 = stringResource(R.string.p2),
             modifier = Modifier.weight(1f))
+        Bottominfocards(
+            head3 = stringResource(R.string.h3),
+            para3 = stringResource(R.string.p3),
+            head4 = stringResource(R.string.h4),
+            para4 = stringResource(R.string.p4),
+            modifier = Modifier.weight(1f) )
+
     }
 }
 
@@ -198,22 +125,7 @@ fun Quadrant(head1: String, para1: String, head2: String,para2: String,head3: St
 @Composable
 fun QuadrantPreview() {
     ComposeQuadrantTheme {
-        Cardone(
-            head1 = stringResource(R.string.h1),
-            para1 = stringResource(R.string.p1)
-        )
-        Cardtwo(
-            head2 = stringResource(R.string.h2),
-            para2 = stringResource(R.string.p2)
-        )
-        Cardthree (
-            head3 = stringResource(R.string.h3),
-            para3 = stringResource(R.string.p3)
-        )
-        Cardfour (
-            head4 = stringResource(R.string.h4),
-            para4 = stringResource(R.string.p4)
-        )
+
     }
 }
 
