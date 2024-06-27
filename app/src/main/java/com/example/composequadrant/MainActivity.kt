@@ -66,32 +66,32 @@ Column (modifier = modifier.padding(16.dp).fillMaxHeight(),
 }
 
 @Composable
-fun Twoinfocards(head1: String, para1: String, head2: String, para2: String, modifier: Modifier) {
+fun Twoinfocards(modifier: Modifier) {
     Row(modifier = modifier) {
         Card(
-            head = head1,
-            para = para1,
+            head = stringResource(R.string.h1),
+            para = stringResource(R.string.p1),
             modifier = Modifier.weight(1f).background(color = Color(0xFFEADDFF))
         )
         Card(
-            head = head2,
-            para = para2,
+            head = stringResource(R.string.h2),
+            para = stringResource(R.string.p2),
             modifier = Modifier.weight(1f).background(color = Color(0xFFD0BCFF))
         )
 
     }
 }
 @Composable
-fun Bottominfocards(head3: String, para3: String, head4: String, para4: String, modifier: Modifier) {
+fun Bottominfocards(modifier: Modifier) {
     Row(modifier = modifier) {
         Card(
-            head = head3,
-            para = para3,
+            head = stringResource(R.string.h3),
+            para = stringResource(R.string.p3),
             modifier = Modifier.weight(1f).background(color = Color(0xFFB69DF8))
         )
         Card(
-            head = head4,
-            para = para4,
+            head = stringResource(R.string.h4),
+            para = stringResource(R.string.p4),
             modifier = Modifier.weight(1f).background(color = Color(0xFFF6EDFF))
         )
 
@@ -103,16 +103,8 @@ fun Bottominfocards(head3: String, para3: String, head4: String, para4: String, 
 fun Quadrant( modifier: Modifier = Modifier){
     Column (modifier = modifier) {
         Twoinfocards(
-            head1 = stringResource(R.string.h1),
-            para1 = stringResource(R.string.p1),
-            head2 = stringResource(R.string.h2),
-            para2 = stringResource(R.string.p2),
             modifier = Modifier.weight(1f))
         Bottominfocards(
-            head3 = stringResource(R.string.h3),
-            para3 = stringResource(R.string.p3),
-            head4 = stringResource(R.string.h4),
-            para4 = stringResource(R.string.p4),
             modifier = Modifier.weight(1f) )
 
     }
